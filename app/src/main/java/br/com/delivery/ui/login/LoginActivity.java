@@ -2,6 +2,7 @@ package br.com.delivery.ui.login;
 
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import br.com.delivery.R;
 import br.com.delivery.ui.login.LoginViewModel;
 import br.com.delivery.ui.login.LoginViewModelFactory;
@@ -31,6 +33,10 @@ public class LoginActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        Toolbar myToolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(myToolbar);
+
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
@@ -45,12 +51,17 @@ public class LoginActivity extends AppCompatActivity {
         background.setAlpha(150);
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
+
+
+            //Aplicar mudanças em EditText e Button
             @Override
             public void onChanged(@Nullable LoginFormState loginFormState) {
+
                 if (loginFormState == null) {
                     return;
                 }
                 loginButton.setEnabled(loginFormState.isDataValid());
+
                 if (loginFormState.getUsernameError() != null) {
                     usernameEditText.setError(getString(loginFormState.getUsernameError()));
                 }
@@ -59,6 +70,8 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+
 
         loginViewModel.getLoginResult().observe(this, new Observer<LoginResult>() {
             @Override
@@ -97,6 +110,7 @@ public class LoginActivity extends AppCompatActivity {
                         passwordEditText.getText().toString());
             }
         };
+
         usernameEditText.addTextChangedListener(afterTextChangedListener);
         passwordEditText.addTextChangedListener(afterTextChangedListener);
         passwordEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -115,8 +129,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loadingProgressBar.setVisibility(View.VISIBLE);
-                loginViewModel.login(usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString());
+                loginViewModel.login(usernameEditText.getText().toString(), passwordEditText.getText().toString());
             }
         });
     }

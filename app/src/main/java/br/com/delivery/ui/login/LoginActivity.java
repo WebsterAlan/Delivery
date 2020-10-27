@@ -22,8 +22,7 @@ import android.widget.Toast;
 
 
 import br.com.delivery.R;
-import br.com.delivery.ui.login.LoginViewModel;
-import br.com.delivery.ui.login.LoginViewModelFactory;
+
 
 public class LoginActivity extends AppCompatActivity {
 

@@ -11,7 +11,7 @@ public class CardapioActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
-    String[] myDataset = {"teste"};
+    String[] myDataset = {"teste","Teste", "teste", "teste", "teste","teste", "teste"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

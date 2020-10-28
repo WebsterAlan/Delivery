@@ -5,8 +5,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import br.com.delivery.R;
+import com.google.android.material.card.MaterialCardView;
 
 
 public class CardapioAdapter extends RecyclerView.Adapter<CardapioAdapter.MyViewHolder> {
@@ -16,11 +18,11 @@ public class CardapioAdapter extends RecyclerView.Adapter<CardapioAdapter.MyView
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView textView;
+        public MaterialCardView materialCardView;
 
-        public MyViewHolder(TextView v) {
+        public MyViewHolder(MaterialCardView v) {
             super(v);
-            textView = v;
+            materialCardView = v;
         }
     }
 
@@ -30,14 +32,14 @@ public class CardapioAdapter extends RecyclerView.Adapter<CardapioAdapter.MyView
 
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        TextView v = (TextView) LayoutInflater.from(parent.getContext()).inflate(R.layout.my_text_view, parent, false);
+        MaterialCardView v = (MaterialCardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.my_text_view, parent, false);
         MyViewHolder vh = new MyViewHolder(v);
         return vh;
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.textView.setText(mDataset[position]);
+        holder.materialCardView.setTooltipText(mDataset[position]);
     }
 
     @Override

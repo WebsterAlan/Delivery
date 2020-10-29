@@ -1,11 +1,8 @@
 package br.com.delivery.ui.cardapio;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import br.com.delivery.R;
 import com.google.android.material.card.MaterialCardView;
@@ -32,7 +29,7 @@ public class CardapioAdapter extends RecyclerView.Adapter<CardapioAdapter.MyView
 
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        MaterialCardView v = (MaterialCardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.my_text_view, parent, false);
+        MaterialCardView v = (MaterialCardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.itens_cardapio, parent, false);
         MyViewHolder vh = new MyViewHolder(v);
         return vh;
     }

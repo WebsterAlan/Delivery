@@ -7,10 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import br.com.delivery.R;
 import com.google.android.material.card.MaterialCardView;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class CardapioAdapter extends RecyclerView.Adapter<CardapioAdapter.MyViewHolder> {
 
     private String[] mDataset;
+    List<Integer> images = new ArrayList<Integer>();
 
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
@@ -25,6 +28,17 @@ public class CardapioAdapter extends RecyclerView.Adapter<CardapioAdapter.MyView
 
     public CardapioAdapter(String[] myDataset) {
         mDataset = myDataset;
+        this.imageadd();
+    }
+
+
+    public void imageadd()
+    {
+        images.add(R.drawable.pizza);
+        images.add(R.drawable.entrada);
+        images.add(R.drawable.pratos);
+
+
     }
 
     @Override
@@ -37,6 +51,8 @@ public class CardapioAdapter extends RecyclerView.Adapter<CardapioAdapter.MyView
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.materialCardView.setTooltipText(mDataset[position]);
+        holder.materialCardView.setBackgroundResource(images.get(position));
+        System.out.println(R.drawable.pizza);
     }
 
     @Override

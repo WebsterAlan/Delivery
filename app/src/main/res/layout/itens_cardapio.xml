@@ -6,7 +6,6 @@ android:layout_margin="6dp"
 android:textColor="@color/colorAccent"
 android:layout_width="400dp"
 android:layout_height="100dp"
-android:backgroundTint="@color/colorAccent"
 android:clickable="true"
 android:focusable="true"
 android:checkable="true">.

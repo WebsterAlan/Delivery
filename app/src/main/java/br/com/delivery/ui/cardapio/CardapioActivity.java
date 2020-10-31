@@ -2,8 +2,6 @@ package br.com.delivery.ui.cardapio;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.LinearLayoutCompat;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import br.com.delivery.R;
@@ -21,11 +19,9 @@ public class CardapioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cardapio);
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
-
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
         // specify an adapter (see also next example)
         mAdapter = new CardapioAdapter(myDataset);
         recyclerView.setAdapter(mAdapter);

@@ -2,7 +2,7 @@ package br.com.delivery.ui.cardapio;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.recyclerview.widget.RecyclerView;
 import br.com.delivery.R;
 import com.google.android.material.card.MaterialCardView;
@@ -19,10 +19,12 @@ public class CardapioAdapter extends RecyclerView.Adapter<CardapioAdapter.MyView
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         public MaterialCardView materialCardView;
+        public AppCompatImageView imageView;
 
         public MyViewHolder(MaterialCardView v) {
             super(v);
             materialCardView = v;
+           imageView = v.findViewById(R.id.imagem_cardapio);
         }
     }
 
@@ -37,12 +39,10 @@ public class CardapioAdapter extends RecyclerView.Adapter<CardapioAdapter.MyView
         images.add(R.drawable.pizza);
         images.add(R.drawable.entrada);
         images.add(R.drawable.pratos);
-
-
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         MaterialCardView v = (MaterialCardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.itens_cardapio, parent, false);
         MyViewHolder vh = new MyViewHolder(v);
         return vh;
@@ -51,8 +51,7 @@ public class CardapioAdapter extends RecyclerView.Adapter<CardapioAdapter.MyView
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.materialCardView.setTooltipText(mDataset[position]);
-        holder.materialCardView.setBackgroundResource(images.get(position));
-        System.out.println(R.drawable.pizza);
+        holder.imageView.setBackgroundResource(images.get(position));
     }
 
     @Override

@@ -1,0 +1,36 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007fc24165c495, pid=15117, tid=15174
+#
+# JRE version: OpenJDK Runtime Environment JBR-11.0.8.10-944.34-jcef (11.0.8+10) (build 11.0.8+10-b944.34)
+# Java VM: OpenJDK 64-Bit Server VM JBR-11.0.8.10-944.34-jcef (11.0.8+10-b944.34, mixed mode, tiered, compressed oops, g1 gc, linux-amd64)
+# Problematic frame:
+# J 11806 c2 jdk.internal.jimage.BasicImageReader.findLocation(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/jimage/ImageLocation; java.base@11.0.8 (115 bytes) @ 0x00007fc24165c495 [0x00007fc24165c240+0x0000000000000255]
+#
+# No core dump will be written. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=127.0.0.1:40623 --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.prefs/java.util.prefs=ALL-UNNAMED -Xmx2048m -Dfile.encoding=UTF-8 -Duser.country=BR -Duser.language=pt -Duser.variant -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true org.gradle.launcher.daemon.bootstrap.GradleDaemon 6.1.1
+
+Host: Intel(R) Core(TM)2 Duo CPU     T6600  @ 2.20GHz, 2 cores, 3G, Kali GNU/Linux Rolling
+Time: Fri Oct 30 23:01:13 2020 -03 elapsed time: 97 seconds (0d 0h 1m 37s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fc22da27800):  JavaThread "Execution worker for ':'" [_thread_in_Java, id=15174, stack(0x00007fc1f200e000,0x00007fc1f210f000)]
+
+Stack: [0x00007fc1f200e000,0x00007fc1f210f000],  sp=0x00007fc1f2103a70,  free space=982k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+J 11806 c2 jdk.internal.jimage.BasicImageReader.findLocation(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/jimage/ImageLocation; java.base@11.0.8 (115 bytes) @ 0x00007fc24165c495 [0x00007fc24165c240+0x0000000000000255]
+J 1802 c1 jdk.internal.module.SystemModuleFinders$SystemModuleReader.findImageLocation(Ljava/lang/String;)Ljdk/internal/jimage/ImageLocation; java.base@11.0.8 (42 bytes) @ 0x00007fc239ecbabc [0x00007fc239ecb7e0+0x00000000000002dc]
+J 1805 c1 jdk.internal.module.SystemModuleFinders$SystemModuleReader.find(Ljava/lang/String;)Ljava/util/Optional; java.base@11.0.8 (54 bytes) @ 0x00007fc239ecd1d4 [0x00007fc239ecd140+0x0000000000000094]
+J 5644 c1 jdk.internal.loader.BuiltinClassLoader$2.run()Ljava/util/List; java.base@11.0.8 (114 bytes) @ 0x00007fc23a74a69c [0x00007fc23a74a560+0x000000000000013c]
+J 11685 c1 jdk.internal.loader.BuiltinClassLoader$2.run()Ljava/lang/Object; java.base@11.0.8 (5 bytes) @ 0x00007fc23b345bcc [0x00007fc23b345b40+0x000000000000008c]
+v  ~StubRoutines::call_stub
+V
